@@ -12,12 +12,22 @@ import java.time.LocalDateTime;
 @RestController
 public class HelloController {
 
-    @GetMapping
-    public HelloResponse hello(){
-        return new HelloResponse("Spring Boot", LocalDateTime.now());
+    private final HelloRepository helloRepository;
+
+    public HelloController(HelloRepository helloRepository) {
+        this.helloRepository = helloRepository;
     }
 
-    public record HelloResponse(String name, LocalDateTime time){
+    @GetMapping
+    public HelloResponse hello(){
+        Hello h = new Hello();
+        h.setName("Test");
+        helloRepository.save(h);
+        String t = helloRepository.getTime();
+        return new HelloResponse(h.getId(), t);
+    }
+
+    public record HelloResponse(Integer id, String name){
 
     }
 }
