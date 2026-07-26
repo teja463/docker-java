@@ -1,4 +1,4 @@
-package com.teja.dockerjava;
+package com.teja.dockerjava.hello;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;

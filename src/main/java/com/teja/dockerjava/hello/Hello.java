@@ -1,4 +1,4 @@
-package com.teja.dockerjava;
+package com.teja.dockerjava.hello;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
